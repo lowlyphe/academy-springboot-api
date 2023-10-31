@@ -1,13 +1,9 @@
-package com.example.demo.student;
+package com.example.demo.academy;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.ResponseStatus;
 
-import java.time.LocalDate;
-import java.time.Month;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -40,14 +36,20 @@ public class StudentService {
         return studentRepository.findAll();
     }
 
+    public Student getStudentById(Long studentId) {
+        return studentRepository.findById(studentId).orElseThrow(() -> new IllegalStateException(
+                "Student with " + studentId + " not found"
+        ));
+    }
+
     /**
      * Adds new student to the database
      * @param student instance of the Student class
      * @throws IllegalStateException if a user with that email already exists
      */
     public void addNewStudent(Student student) {
-        Optional<Student> studentByOptional = studentRepository.findStudentByEmail(student.getEmail());
-        if (studentByOptional.isPresent()) {
+        Optional<Student> studentOptional = studentRepository.findStudentByEmail(student.getEmail());
+        if (studentOptional.isPresent()) {
             throw new IllegalStateException("Email already in use");
         }
         studentRepository.save(student);
@@ -82,8 +84,8 @@ public class StudentService {
         }
 
         if (email != null && email.length() > 0 && !Objects.equals(student.getEmail(), email)) {
-            Optional<Student> studentByOptional = studentRepository.findStudentByEmail(student.getEmail());
-            if (studentByOptional.isPresent()) {
+            Optional<Student> studentOptional = studentRepository.findStudentByEmail(student.getEmail());
+            if (studentOptional.isPresent()) {
                 throw new IllegalStateException("Email already in use");
             }
             student.setEmail(email);

@@ -1,4 +1,4 @@
-package com.example.demo.faculty;
+package com.example.demo.academy;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;

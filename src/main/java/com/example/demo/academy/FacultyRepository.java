@@ -1,8 +1,7 @@
-package com.example.demo.faculty;
+package com.example.demo.academy;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
 import java.util.Optional;
 
 @Repository

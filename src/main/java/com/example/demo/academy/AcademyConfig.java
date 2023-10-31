@@ -1,18 +1,35 @@
-package com.example.demo.faculty;
+package com.example.demo.academy;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
 
 @Configuration
-public class FacultyConfig {
+public class AcademyConfig {
 
     @Bean
-    CommandLineRunner commandLineRunner(FacultyRepository facultyRepository) {
+    CommandLineRunner commandLineRunner(StudentRepository studentRepository, FacultyRepository facultyRepository) {
         return args -> {
+            Student kyle = new Student(
+                    "Kyle",
+                    "kyle.jones@gmail.com",
+                    LocalDate.of(1993, Month.JANUARY, 28)
+            );
+
+            Student tim = new Student(
+                    "Tim",
+                    "Tim.shelling@gmail.com",
+                    LocalDate.of(1990, Month.MARCH, 15)
+            );
+
+            studentRepository.saveAll(
+                    List.of(kyle, tim)
+            );
+
             Faculty alex = new Faculty(
                     "Simmons, Alex",
                     54521,
@@ -30,12 +47,10 @@ public class FacultyConfig {
                     "Holland, Tim",
                     "janet.jacobs@university.edu",
                     LocalDate.of(1985, Month.JANUARY, 21));
+
+            facultyRepository.saveAll(
+                    List.of(alex, janet)
+            );
         };
-
-        facultyRepository.saveAll(
-                List.of(alex, janet)
-        );
-
-
     }
 }
