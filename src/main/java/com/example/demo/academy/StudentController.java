@@ -1,4 +1,4 @@
-package com.example.demo.student;
+package com.example.demo.academy;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatusCode;
@@ -35,6 +35,11 @@ public class StudentController {
     @GetMapping
     public List<Student> getStudents() {
         return studentService.getStudents();
+    }
+
+    @GetMapping(path = "{studentId}")
+    public Student getStudentById(@PathVariable Long studentId) {
+        return studentService.getStudentById(studentId);
     }
 
     /**
@@ -97,8 +102,6 @@ public class StudentController {
             else {
                 throw new ResponseStatusException(HttpStatusCode.valueOf(500), "Internal Server Error", ise);
             }
-
         }
-
     }
 }
