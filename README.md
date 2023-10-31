@@ -1,11 +1,15 @@
 # Academy Server
 <hr>
 
-Simple project to learn Spring Boot<br>
+Dockerized REST Api containing endpoints for CRUD operations for Students and Faculty<br>
 
 Goals:
 - Setup PSQL database to store Students and Faculty
 - Develop RESTful endpoint to manage records
+- Dockerize it
+
+
+  Docker image location: [Docker](https://hub.docker.com/repository/docker/joneskyle2893/academy-api/general)
 
 Endpoints:
 - /api/v1/student
