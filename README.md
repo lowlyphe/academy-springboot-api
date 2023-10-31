@@ -1,4 +1,4 @@
-# SpringBoot-Project
+# Academy Server
 <hr>
 
 Simple project to learn Spring Boot<br>
