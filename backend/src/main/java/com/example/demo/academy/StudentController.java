@@ -33,6 +33,7 @@ public class StudentController {
      * @return List of Student Objects
      */
     @GetMapping
+    @CrossOrigin(origins = "http://localhost:5173")
     public List<Student> getStudents() {
         return studentService.getStudents();
     }
