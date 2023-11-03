@@ -3,7 +3,7 @@ services:
   app:
     image: "academy-api"
     build:
-      context: ./src/main/docker
+      context: ./backend/src/main/docker
     container_name: app
     depends_on:
       - db
@@ -20,7 +20,7 @@ services:
     ports:
       - "8080:8080"
   db:
-    image: 'postgres:16-alpine'
+    image: "postgres:16-alpine"
     restart: always
     container_name: db
     environment:
