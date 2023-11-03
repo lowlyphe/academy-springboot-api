@@ -1,12 +1,15 @@
 import React from "react";
 
-export default function Student({ student }) {
+export default function Faculty({ faculty }) {
   return (
     <tr>
-      <td>{student.name}</td>
-      <td>{student.email}</td>
-      <td>{student.dob}</td>
-      <td>{student.age}</td>
+      <td>{faculty.employeeId}</td>
+      <td>{faculty.name}</td>
+      <td>{faculty.department}</td>
+      <td>{faculty.position}</td>
+      <td>{faculty.email}</td>
+      <td>{faculty.manager}</td>
+      <td>{faculty.dob}</td>
       <td>
         <button
           className={

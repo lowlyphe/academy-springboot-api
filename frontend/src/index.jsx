@@ -22,13 +22,16 @@ export function App() {
   };
 
   return (
-    <>
+    <div className={"flex flex-col w-screen h-screen"}>
+      <h1 className={"text-3xl mt-10"}>Academy Database</h1>
       <Navbar
         displayStudents={displayStudents}
         displayFaculty={displayFaculty}
       />
-      <Spreadsheet students={students} faculty={faculty} />
-    </>
+      <div>
+        <Spreadsheet students={students} faculty={faculty} />
+      </div>
+    </div>
   );
 }
 
