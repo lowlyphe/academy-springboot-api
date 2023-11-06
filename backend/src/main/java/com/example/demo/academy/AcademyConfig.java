@@ -16,7 +16,7 @@ public class AcademyConfig {
         return args -> {
             Student kyle = new Student(
                     "Kyle",
-                    "kyle.jones@gmail.com",
+                    "kyle.jones@yahoo.com",
                     LocalDate.of(1993, Month.JANUARY, 28)
             );
 

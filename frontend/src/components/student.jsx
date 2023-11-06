@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Student({ student }) {
+export default function Student({ student, handleStudentOpen }) {
   return (
     <tr>
       <td>{student.name}</td>
@@ -12,6 +12,7 @@ export default function Student({ student }) {
           className={
             "bg-green-500 w-24 text-white rounded-sm hover:bg-green-400"
           }
+          onClick={() => handleStudentOpen(student.id)}
         >
           Edit
         </button>

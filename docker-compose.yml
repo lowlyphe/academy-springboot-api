@@ -1,5 +1,17 @@
 version: "3.8"
 services:
+  frontend:
+    image: node:alpine
+    container_name: frontend
+    entrypoint: /bin/sh
+    ports:
+      - 5173:5173
+    working_dir: /srv/app
+    volumes:
+      - type: bind
+        source: ./frontend
+        target: /srv/app
+    tty: true
   app:
     image: "academy-api"
     build:

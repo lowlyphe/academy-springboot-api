@@ -1,7 +1,7 @@
 import Student from "./student";
 import Faculty from "./faculty";
 
-export default function Spreadsheet({ students, faculty }) {
+export default function Spreadsheet({ students, handleStudentOpen, faculty }) {
   if (students.length > 0) {
     return (
       <div>
@@ -18,34 +18,40 @@ export default function Spreadsheet({ students, faculty }) {
           </thead>
           <tbody>
             {students.map((student) => (
-              <Student student={student} />
+              <Student
+                student={student}
+                handleStudentOpen={handleStudentOpen}
+              />
             ))}
           </tbody>
         </table>
       </div>
     );
-  } else if (faculty.length > 0) {
-    <div>
-      <table className={"table-auto"}>
-        <thead>
-          <tr>
-            <th>Employee ID</th>
-            <th>Name</th>
-            <th>Department</th>
-            <th>Position</th>
-            <th>Manager</th>
-            <th>Email</th>
-            <th>DOB</th>
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          {faculty.map((faculty) => (
-            <Faculty faculty={faculty} />
-          ))}
-        </tbody>
-      </table>
-    </div>;
+  }
+  if (faculty.length > 0) {
+    return (
+      <div>
+        <table className={"table-auto"}>
+          <thead>
+            <tr className={"text-xs"}>
+              <th>Employee ID</th>
+              <th>Name</th>
+              <th>Department</th>
+              <th>Position</th>
+              <th>Email</th>
+              <th>Manager</th>
+              <th>DOB</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {faculty.map((faculty) => (
+              <Faculty faculty={faculty} />
+            ))}
+          </tbody>
+        </table>
+      </div>
+    );
   }
 }
